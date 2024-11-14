@@ -5,7 +5,7 @@
 grep -r "hello" .
 
 
-# find : 파일명으로 파일찾기
+# find : 이름으로 파일 또는 디렉토리 찾기
 # 너무 많으니까 파일명으로 제한시키고 grep ㄱㄱ
 
 find . -name "*.txt"
@@ -15,3 +15,6 @@ find . -name "*.txt" | xargs grep -rni "hello"
 #  .txt로 끝나는 파일들 가운데에 hello 가 들어가는 것들을 찾아라
 find . -name "*.txt" -exec grep -rni "hello" {} \;
 # 왼쪽을 대상으로 execute하겠다. 뭘?  중괄호 안에 find에서 찾은 대상이 들어가고 역슬래쉬 세미콜론은 구문의 끝을 의미한다.
+
+# type을 지정하고 싶을 때, f는 파일, d는 디렉토리 
+find . -name "my*" -type f -exec grep -rni "hello" {} \;
